@@ -1,0 +1,80 @@
+import random
+score = 0
+computer_score = 0
+# Paper
+paper = ("""
+     _____
+---'    __)____
+           ____)
+          _____)
+         _____)
+---.__________)
+""")
+# Rock
+rock = ("""
+    _____
+---'   __)
+      (___)
+      (___)
+      (__)
+---.__(_)
+""")
+# Scissors
+scissors = ("""
+    _____
+---'   __)____
+          ____)
+       ________)
+      (__)
+---.__(_)
+""")
+options = ("rock", "paper", "scissors")
+running = True
+
+while running:
+
+    player = None
+    computer = random.choice(options)
+
+    while player not in options:
+        player = input("Enter a choice (rock, paper, scissors): ")
+
+    print(f"Player: {player}")
+    print(f"Computer: {computer}")
+
+    if player == computer:
+        print("It's a tie!")
+        print(globals()[player])
+        print(f"The computer chose {computer}")
+        print(globals()[computer])
+    elif player == "rock" and computer == "scissors":
+        print("You win!")
+        print(rock) 
+        print("The computer chose scissors.")
+        print(scissors)
+        score += 1
+    elif player == "paper" and computer == "rock":
+        print("You win!")
+        print(paper)
+        print("The computer chose rock.")
+        print(rock)
+        score += 1
+    elif player == "scissors" and computer == "paper":
+        print("You win!")
+        print(scissors)
+        print("The computer chose paper.")
+        print(paper)
+        score += 1
+    else:
+        print("You lose!")
+        print(globals()[player])
+        print(f"The computer chose {computer}")
+        print(globals()[computer])
+        computer_score += 1
+    play_again = input("Play again? (yes/no): ").lower()
+    if not play_again == "yes":
+        print(f"You won a total of {score} times")
+        print(f"The computer won a total of {computer_score} times")
+        running = False
+
+print("Thank for playing, bye!")
