@@ -77,4 +77,5 @@ while running:
         print(f"The computer won a total of {computer_score} times")
         running = False
 
+
 print("Thank for playing, bye!")
